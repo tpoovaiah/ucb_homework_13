@@ -1,0 +1,40 @@
+.to-devour{
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 50px;
+}
+
+.devoured{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+
+.bg{
+    background-color: #b5d5bd ;
+}
+
+.center-group {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.list-spacing {
+    padding: 5px;
+}
+
+.btn {
+    margin-right: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.each-devoured {
+    background-color:#c78838;
+}

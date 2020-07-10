@@ -1,38 +1,60 @@
-<h1>Cats!</h1>
+<div class="container">
 
-<h2>Cats that are not sleepy!</h2>
+  <div class="row">
+    <img src="assets/img/burger.jpg" alt="Burger" class="center">
+  </div>
+  <h1 class="center-group">Eat-Da-Burger!</h1>
 
-<ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
 
-<h2>Cats that are sleepy!</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="to-devour">
+        <h2>Burgers to Devour!</h2>
+        <ul>
+          {{#each burgers}}
+          {{#unless this.devoured}}
+          <div class="list-spacing">
+            <button type="submit" class='btn btn-warning devour'> Devour!</button>
+            {{this.burger_name}}
+          </div>
+          {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
 
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
+    <div class="col-md-6">
+      <div class="devoured">
+        <h2>Burgers Devoured!</h2>
+        <ul>
+          {{#each burgers}}
+          {{#if this.devoured}}
+          <div class="list-spacing each-devoured">
+          {{this.burger_name}}
+          </div>
+          {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="slee">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
+  <div class="row">
+
+    <div class="col-md-12 center-group">
+
+      <h2>Add a Burger to Devour!</h2>
+      <form class="create-form">
+        <div class="form-group">
+          <label for="burgerType">Type of Burger:</label>
+          <input type="text" id="burgerType" name="name">
+        </div>
+        <button type="submit" class="btn btn-success">Add Burger</button>
+      </form>
+    </div>
+
+
   </div>
 
-  <button type="submit">Add Cat</button>
-</form>
+
+</div>
