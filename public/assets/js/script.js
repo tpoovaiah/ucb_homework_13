@@ -1,42 +1,48 @@
 $(function() {
     $(".devour").on("click", function(event) {
-      var id = $(this).data("id");
-      var newSleep = $(this).data("newsleep");
-  
-      var newSleepState = {
-        sleepy: newSleep
-      };
-  
-      $.ajax("/api/cats/" + id, {
-        type: "PUT",
-        data: newSleepState
-      }).then(
-        function() {
-          console.log("changed sleep to", newSleep);
-          location.reload();
-        }
-      );
-    });
-  
-    $(".create-form").on("submit", function(event) {
       event.preventDefault();
+      var id = $(this).data("id");
+      console.log("id"+id)
   
-      var newCat = {
-        name: $("#ca").val().trim(),
-        sleepy: $("[name=sleepy]:checked").val().trim()
+      var isDevoured = {
+        devoured: true
       };
   
-      $.ajax("/api/cats", {
-        type: "POST",
-        data: newCat
+      $.ajax("/api/burgers/" + id, {
+        type: "PUT",
+        data: isDevoured
       }).then(
         function() {
-          console.log("created new cat");
           location.reload();
         }
       );
     });
   
-    
+
+
+
+    $(".add-burger").on("click", function(event) {
+      event.preventDefault();
+
+      // var burgerName = $("#burgerType").val()
+
+      // console.log("burgername: "+ burgerName )
+  
+      var newBurger = {
+        burger_name: $("#burgerType").val(),
+        devoured: 0
+      };
+  
+      $.ajax("/api/burgers", {
+        type: "POST",
+        data: newBurger
+      }).then(
+        function() {
+          console.log("created new burger!");
+          location.reload();
+        }
+      );
+    });
+  
   });
   

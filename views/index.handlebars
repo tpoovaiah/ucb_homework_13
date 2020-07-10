@@ -14,7 +14,7 @@
           {{#each burgers}}
           {{#unless this.devoured}}
           <div class="list-spacing">
-            <button type="submit" class='btn btn-warning devour'> Devour!</button>
+            <button type="submit" class='btn btn-warning devour' data-id={{this.id}}> Devour!</button>
             {{this.burger_name}}
           </div>
           {{/unless}}
@@ -49,7 +49,7 @@
           <label for="burgerType">Type of Burger:</label>
           <input type="text" id="burgerType" name="name">
         </div>
-        <button type="submit" class="btn btn-success">Add Burger</button>
+        <button type="submit" class="btn btn-success add-burger">Add Burger</button>
       </form>
     </div>
 
